@@ -1,21 +1,28 @@
 import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import NavigationProvider from "./components/Navigation/context/Provider";
+import PageProvider from "./context/Pages/Provider";
+import SeoHelmet from "./components/SeoHelmet";
+import Navigation from "./components/Navigation/Navigation";
+import FrontPage from "./views/FrontPage/FrontPage";
+import Page from "./views/Page/Page";
+import PageNotFound from "./views/PageNotFound/PageNotFound";
 
-function App() {
-    return (
-        <div className="App">
-            <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
-                <p>
-                    Edit <code>react-src/src/App.js</code> and save to reload.
-                </p>
-                <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-                    Learn React
-                </a>
-            </header>
-        </div>
-    );
-}
+const App = () => {
+  return (
+    <BrowserRouter>
+      <NavigationProvider>
+        <Navigation />
+        <PageProvider>
+          <Switch>
+            <Route path="/ellen-lolck/" component={FrontPage} exact />
+            <Route path="/ellen-lolck/:slug" component={Page} />
+            <Route path="*" component={PageNotFound} />
+          </Switch>
+        </PageProvider>
+      </NavigationProvider>
+    </BrowserRouter>
+  );
+};
 
 export default App;

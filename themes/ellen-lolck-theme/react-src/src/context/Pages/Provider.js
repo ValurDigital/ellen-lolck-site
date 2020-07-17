@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { useParams } from "react-router-dom";
 import { createAction } from "../../utils/createAction";
 import PageContext from "./Context";
 import { PAGES_API_URL } from "../../utils/api/constants";

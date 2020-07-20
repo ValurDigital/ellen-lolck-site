@@ -1,9 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import { Container, Row } from "react-bootstrap";
 
 const FrontPage = ({}) => {
-  return <div>Front Page</div>;
+  return (
+    <Container>
+      <Row>Forside</Row>
+    </Container>
+  );
 };
 
 // FrontPage.defaultProps = {};

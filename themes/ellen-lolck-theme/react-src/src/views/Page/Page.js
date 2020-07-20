@@ -16,7 +16,7 @@ const Page = ({ slug, match }) => {
     } else {
       history.push("/not-found");
     }
-  }, [pages, match.params.slug]);
+  }, [pages, match.params.slug, history]);
 
   if (!isLoading && pages && currentPage) {
     return (

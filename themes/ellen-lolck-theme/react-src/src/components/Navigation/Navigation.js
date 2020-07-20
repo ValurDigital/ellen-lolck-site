@@ -19,8 +19,8 @@ const Navigation = () => {
               const { ID, slug, classes, title, menu_item_parent } = link;
               if (menu_item_parent === "0") {
                 return (
-                  <MenuItem>
-                    <NavLink key={ID} to={`/ellen-lolck/${link.slug}`} activeStyle={{ borderBottom: "1px solid", borderColor: colors.brand.primary }}>
+                  <MenuItem key={ID}>
+                    <NavLink to={`/ellen-lolck/${link.slug}`} activeStyle={{ borderBottom: "1px solid", borderColor: colors.brand.primary }}>
                       {title}
                     </NavLink>
                   </MenuItem>

@@ -133,6 +133,74 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARsAAABxCAYAAADl
 
 /***/ }),
 
+/***/ "./src/components/Banner/Banner.js":
+/*!*****************************************!*\
+  !*** ./src/components/Banner/Banner.js ***!
+  \*****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/index.js");
+var _jsxFileName = "/Users/villadsvalur/Developer/ValurDigital/ellen-lolck-site/themes/ellen-lolck-theme/react-src/src/components/Banner/Banner.js";
+
+
+
+
+
+const Banner = ({
+  banner_image,
+  banner_text,
+  overskrift
+}) => {
+  if (banner_image) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["Row"], {
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 9,
+        columnNumber: 7
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 10,
+        columnNumber: 9
+      }
+    }, overskrift), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      src: banner_image,
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 11,
+        columnNumber: 9
+      }
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 12,
+        columnNumber: 9
+      }
+    }, banner_text));
+  }
+
+  return null;
+}; // Banner.defaultProps = {};
+
+
+Banner.propTypes = {};
+/* harmony default export */ __webpack_exports__["default"] = (Banner);
+
+/***/ }),
+
 /***/ "./src/components/Navigation/Navigation.js":
 /*!*************************************************!*\
   !*** ./src/components/Navigation/Navigation.js ***!
@@ -212,6 +280,7 @@ const Navigation = () => {
 
       if (menu_item_parent === "0") {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(MenuItem, {
+          key: ID,
           __self: undefined,
           __source: {
             fileName: _jsxFileName,
@@ -219,7 +288,6 @@ const Navigation = () => {
             columnNumber: 19
           }
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["NavLink"], {
-          key: ID,
           to: `/ellen-lolck/${link.slug}`,
           activeStyle: {
             borderBottom: "1px solid",
@@ -395,43 +463,30 @@ var _jsxFileName = "/Users/villadsvalur/Developer/ValurDigital/ellen-lolck-site/
 
 
 const SeoHelmet = ({
-  seoData
+  seoData,
+  pageTitle
 }) => {
+  const {
+    yoast_wpseo_metadesc
+  } = seoData;
+  const PAGE_TITLE = `Ellen Lolck | ${pageTitle}`;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_helmet__WEBPACK_IMPORTED_MODULE_3__["Helmet"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 8,
+      lineNumber: 10,
       columnNumber: 5
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("title", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 9,
-      columnNumber: 7
-    }
-  }, seoData.metaTitle), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
-    name: "viewport",
-    content: "width=device-width, initial-scale=1.0",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 10,
-      columnNumber: 7
-    }
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
-    name: "description",
-    content: seoData.metaDescription,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
       lineNumber: 11,
       columnNumber: 7
     }
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
-    property: "og:site_name",
-    content: seoData.metaTitle,
+  }, PAGE_TITLE), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
+    name: "viewport",
+    content: "width=device-width, initial-scale=1.0",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -439,8 +494,8 @@ const SeoHelmet = ({
       columnNumber: 7
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
-    property: "og:image",
-    content: seoData.ogImage,
+    name: "description",
+    content: yoast_wpseo_metadesc,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -448,8 +503,8 @@ const SeoHelmet = ({
       columnNumber: 7
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
-    property: "og:locale",
-    content: seoData.locale,
+    property: "og:site_name",
+    content: PAGE_TITLE,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -457,8 +512,8 @@ const SeoHelmet = ({
       columnNumber: 7
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
-    property: "og:title",
-    content: seoData.ogTitle,
+    property: "og:image",
+    content: seoData.ogImage || "",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -466,8 +521,8 @@ const SeoHelmet = ({
       columnNumber: 7
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
-    property: "og:description",
-    content: seoData.ogDescription,
+    property: "og:locale",
+    content: "da-dk",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -475,8 +530,8 @@ const SeoHelmet = ({
       columnNumber: 7
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
-    property: "twitter:image",
-    content: seoData.twitterImage,
+    property: "og:title",
+    content: PAGE_TITLE,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -484,8 +539,8 @@ const SeoHelmet = ({
       columnNumber: 7
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
-    property: "twitter:title",
-    content: seoData.twitterTitle,
+    property: "og:description",
+    content: yoast_wpseo_metadesc,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -493,12 +548,30 @@ const SeoHelmet = ({
       columnNumber: 7
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
-    property: "twitter:description",
-    content: seoData.twitterDescription,
+    property: "twitter:image",
+    content: seoData.twitterImage || "",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 19,
+      columnNumber: 7
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
+    property: "twitter:title",
+    content: PAGE_TITLE,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 20,
+      columnNumber: 7
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
+    property: "twitter:description",
+    content: yoast_wpseo_metadesc,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 21,
       columnNumber: 7
     }
   }));
@@ -963,6 +1036,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/index.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _context_Pages_Context__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../context/Pages/Context */ "./src/context/Pages/Context.js");
+/* harmony import */ var _components_Banner_Banner__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/Banner/Banner */ "./src/components/Banner/Banner.js");
+/* harmony import */ var _components_SeoHelmet__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/SeoHelmet */ "./src/components/SeoHelmet.js");
 var _jsxFileName = "/Users/villadsvalur/Developer/ValurDigital/ellen-lolck-site/themes/ellen-lolck-theme/react-src/src/views/Page/Page.js";
  // import PropTypes from "prop-types";
 // import styled from "styled-components";
@@ -971,8 +1046,9 @@ var _jsxFileName = "/Users/villadsvalur/Developer/ValurDigital/ellen-lolck-site/
 
 
 
+
+
 const Page = ({
-  slug,
   match
 }) => {
   const history = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["useHistory"])();
@@ -986,7 +1062,7 @@ const Page = ({
       setCurrentPage({ ...pages.bySlug[match.params.slug]
       });
     } else {
-      history.push("/not-found");
+      history.push("/ellen-lolck/forside");
     }
   }, [pages, match.params.slug, history]);
 
@@ -995,14 +1071,30 @@ const Page = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 23,
+        lineNumber: 25,
         columnNumber: 7
       }
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Row"], {
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_SeoHelmet__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      seoData: currentPage.yoast,
+      pageTitle: currentPage.title,
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 24,
+        lineNumber: 26,
+        columnNumber: 9
+      }
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Banner_Banner__WEBPACK_IMPORTED_MODULE_4__["default"], Object.assign({}, currentPage.acf.banner, {
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 27,
+        columnNumber: 9
+      }
+    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Row"], {
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 28,
         columnNumber: 9
       }
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
@@ -1010,24 +1102,34 @@ const Page = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 25,
+        lineNumber: 29,
         columnNumber: 11
       }
-    }, "Page: ", currentPage.title, " "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    }, "Page: ", currentPage.title, " ")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Row"], {
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 26,
+        lineNumber: 31,
+        columnNumber: 9
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      dangerouslySetInnerHTML: {
+        __html: currentPage.content
+      },
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 32,
         columnNumber: 11
       }
-    }, slug)));
+    })));
   }
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 31,
+      lineNumber: 37,
       columnNumber: 10
     }
   }, "Loading page...");
@@ -1094,5 +1196,5 @@ module.exports = __webpack_require__(/*! /Users/villadsvalur/Developer/ValurDigi
 
 /***/ })
 
-},[[0,"runtime-main",0]]]);
+},[[0,"runtime-main",1]]]);
 //# sourceMappingURL=main.chunk.js.map

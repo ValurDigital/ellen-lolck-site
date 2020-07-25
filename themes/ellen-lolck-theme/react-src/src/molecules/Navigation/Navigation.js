@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
-import NavigationContext from "./context/Context";
+import NavigationContext from "../../context/Navigation/Context";
 import { Nav, Container, Row } from "react-bootstrap";
 import logoPNG from "../../assets/images/LOGOEllen.png";
 import colors from "../../utils/theme/colors";
@@ -12,23 +12,28 @@ const Navigation = () => {
   if (menuLinks) {
     return (
       <StyledContainer fluid>
-        <MenuWrapper>
-          <LogoImage src={logoPNG} />
-          <Menu className="justify-content-end" fill>
-            {menuLinks.map((link) => {
-              const { ID, slug, classes, title, menu_item_parent } = link;
-              if (menu_item_parent === "0") {
-                return (
-                  <MenuItem key={ID}>
-                    <NavLink to={`/ellen-lolck/${link.slug}`} activeStyle={{ borderBottom: "1px solid", borderColor: colors.brand.primary }}>
-                      {title}
-                    </NavLink>
-                  </MenuItem>
-                );
-              }
-            })}
-          </Menu>
-        </MenuWrapper>
+        <Container>
+          <MenuWrapper>
+            <LogoImage src={logoPNG} />
+            <Menu className="justify-content-end" fill>
+              {menuLinks.map((link) => {
+                const { ID, slug, classes, title, menu_item_parent } = link;
+                if (menu_item_parent === "0") {
+                  return (
+                    <MenuItem key={ID}>
+                      <NavLink
+                        to={`/ellen-lolck/${link.slug === "forside" ? "" : link.slug}`}
+                        activeStyle={{ borderBottom: "1px solid", borderColor: colors.brand.primary }}
+                      >
+                        {title}
+                      </NavLink>
+                    </MenuItem>
+                  );
+                }
+              })}
+            </Menu>
+          </MenuWrapper>
+        </Container>
       </StyledContainer>
     );
   }

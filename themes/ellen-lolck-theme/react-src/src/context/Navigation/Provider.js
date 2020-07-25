@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
-import { createAction } from "../../../utils/createAction";
+import { createAction } from "../../utils/createAction";
 import NavigationContext from "./Context";
-import { MAIN_MENU_API_URL } from "../../../utils/api/constants";
-import Loading from "../../Loading/Loading";
+import { MAIN_MENU_API_URL } from "../../utils/api/constants";
 
 export const initialState = {
   isLoading: true,
@@ -39,10 +38,7 @@ const NavigationProvider = ({ children }) => {
       .then((menus) => dispatch(success(menus)));
   }, []);
 
-  if (!state.isLoading) {
-    return <NavigationContext.Provider value={state}>{children}</NavigationContext.Provider>;
-  }
-  return <Loading />;
+  return <NavigationContext.Provider value={state}>{children}</NavigationContext.Provider>;
 };
 
 export default NavigationProvider;

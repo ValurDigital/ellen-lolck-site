@@ -1,14 +1,11 @@
-import React from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
-import NavigationProvider from "./components/Navigation/context/Provider";
+import React, { useContext } from "react";
+import { BrowserRouter } from "react-router-dom";
+import NavigationProvider from "./context/Navigation/Provider";
 import PageProvider from "./context/Pages/Provider";
-import SeoHelmet from "./components/SeoHelmet";
-import Navigation from "./components/Navigation/Navigation";
-import FrontPage from "./views/FrontPage/FrontPage";
-import Page from "./views/Page/Page";
-import PageNotFound from "./views/PageNotFound/PageNotFound";
+import Navigation from "./molecules/Navigation/Navigation";
 import { GlobalStyle, theme } from "./utils/theme/theme";
 import { ThemeProvider } from "styled-components";
+import Routes from "./templates/Routes";
 
 const App = () => {
   return (
@@ -18,11 +15,7 @@ const App = () => {
         <NavigationProvider>
           <Navigation />
           <PageProvider>
-            <Switch>
-              <Route path="/ellen-lolck/" component={FrontPage} exact />
-              <Route path="/ellen-lolck/:slug" component={Page} />
-              <Route path="/ellen-lolck/services/:slug" component={Page} />
-            </Switch>
+            <Routes />
           </PageProvider>
         </NavigationProvider>
       </BrowserRouter>

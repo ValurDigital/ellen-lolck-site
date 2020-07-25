@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import styled from "styled-components";
 import { Helmet } from "react-helmet";
 
 const SeoHelmet = ({ seoData, pageTitle }) => {
@@ -25,6 +24,9 @@ const SeoHelmet = ({ seoData, pageTitle }) => {
 
 // SeoHelmet.defaultProps = {};
 
-SeoHelmet.propTypes = {};
+SeoHelmet.propTypes = {
+  seoData: PropTypes.shape({}),
+  pageTitle: PropTypes.string,
+};
 
 export default SeoHelmet;

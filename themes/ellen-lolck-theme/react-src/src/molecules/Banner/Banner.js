@@ -2,13 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { Row, Container, Col } from "react-bootstrap";
-import UnderlinedHeader from "../UnderlinedHeader/UnderlinedHeader";
+import UnderlinedHeader from "../../atoms/UnderlinedHeader/UnderlinedHeader";
 
 const Banner = ({ bannerHeader, bannerSubheader, bannerText, bannerImage }) => {
   if (bannerImage) {
     return (
-      <StyledContainer>
-        <Row>
+      <Container>
+        <StyledRow>
           <Col sm="12" md="4">
             <TextWrapper>
               <UnderlinedHeader header={bannerHeader} subheader={bannerSubheader} />
@@ -20,15 +20,16 @@ const Banner = ({ bannerHeader, bannerSubheader, bannerText, bannerImage }) => {
               <Image src={bannerImage} />
             </ImageWrapper>
           </Col>
-        </Row>
-      </StyledContainer>
+        </StyledRow>
+      </Container>
     );
   }
   return null;
 };
 
-const StyledContainer = styled(Container)`
+const StyledRow = styled(Row)`
   padding-top: ${({ theme: { padding } }) => padding.sectionTop};
+  padding-bottom: ${({ theme: { padding } }) => padding.sectionBottom};
 `;
 const Text = styled.div``;
 const ImageWrapper = styled.div`

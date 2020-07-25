@@ -11,8 +11,4 @@ const FrontPage = ({}) => {
   );
 };
 
-// FrontPage.defaultProps = {};
-
-FrontPage.propTypes = {};
-
 export default FrontPage;

@@ -21,6 +21,7 @@ const App = () => {
             <Switch>
               <Route path="/ellen-lolck/" component={FrontPage} exact />
               <Route path="/ellen-lolck/:slug" component={Page} />
+              <Route path="/ellen-lolck/services/:slug" component={Page} />
             </Switch>
           </PageProvider>
         </NavigationProvider>

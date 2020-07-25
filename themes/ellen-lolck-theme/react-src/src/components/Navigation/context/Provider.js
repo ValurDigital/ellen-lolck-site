@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { createAction } from "../../../utils/createAction";
 import NavigationContext from "./Context";
 import { MAIN_MENU_API_URL } from "../../../utils/api/constants";
+import Loading from "../../Loading/Loading";
 
 export const initialState = {
   isLoading: true,
@@ -39,13 +40,9 @@ const NavigationProvider = ({ children }) => {
   }, []);
 
   if (!state.isLoading) {
-    return (
-      <NavigationContext.Provider value={state}>
-        {children}
-      </NavigationContext.Provider>
-    );
+    return <NavigationContext.Provider value={state}>{children}</NavigationContext.Provider>;
   }
-  return <span>Loading all of this...</span>;
+  return <Loading />;
 };
 
 export default NavigationProvider;

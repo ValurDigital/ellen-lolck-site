@@ -1,11 +1,12 @@
 import React, { useEffect, useState, useContext } from "react";
 // import PropTypes from "prop-types";
 // import styled from "styled-components";
-import { Container, Row } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import PageContext from "../../context/Pages/Context";
 import Banner from "../../components/Banner/Banner";
 import SeoHelmet from "../../components/SeoHelmet";
+import Loading from "../../components/Loading/Loading";
 
 const Page = ({ match }) => {
   const history = useHistory();
@@ -25,16 +26,10 @@ const Page = ({ match }) => {
       <Container>
         <SeoHelmet seoData={currentPage.yoast} pageTitle={currentPage.title} />
         <Banner {...currentPage.acf.banner} />
-        <Row>
-          <h1 className="header">Page: {currentPage.title} </h1>
-        </Row>
-        <Row>
-          <div dangerouslySetInnerHTML={{ __html: currentPage.content }}></div>
-        </Row>
       </Container>
     );
   }
-  return <span>Loading page...</span>;
+  return <Loading />;
 };
 
 // Page.defaultProps = {};

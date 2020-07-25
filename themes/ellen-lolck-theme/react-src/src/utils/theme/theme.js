@@ -1,6 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 import colors from "./colors";
 import { fontFamily, fontSizes } from "./fonts";
+import { padding } from "./padding";
 
 export const GlobalStyle = createGlobalStyle`
   html {
@@ -18,4 +19,5 @@ export const GlobalStyle = createGlobalStyle`
 export const theme = {
   colors,
   fontSizes,
+  padding,
 };

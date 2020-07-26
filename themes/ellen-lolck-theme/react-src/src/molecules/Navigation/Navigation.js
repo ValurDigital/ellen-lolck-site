@@ -17,12 +17,12 @@ const Navigation = () => {
             <LogoImage src={logoPNG} />
             <Menu className="justify-content-end" fill>
               {menuLinks.map((link) => {
-                const { ID, slug, classes, title, menu_item_parent } = link;
+                const { ID, slug, title, menu_item_parent } = link;
                 if (menu_item_parent === "0") {
                   return (
                     <MenuItem key={ID}>
                       <NavLink
-                        to={`/ellen-lolck/${link.slug === "forside" ? "" : link.slug}`}
+                        to={`/ellen-lolck/${slug === "forside" ? "" : slug}`}
                         activeStyle={{ borderBottom: "1px solid", borderColor: colors.brand.primary }}
                       >
                         {title}

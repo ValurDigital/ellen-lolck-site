@@ -6,6 +6,7 @@ import Navigation from "./molecules/Navigation/Navigation";
 import { GlobalStyle, theme } from "./utils/theme/theme";
 import { ThemeProvider } from "styled-components";
 import Routes from "./templates/Routes";
+import Footer from "./organisms/Footer";
 
 const App = () => {
   return (
@@ -13,9 +14,10 @@ const App = () => {
       <BrowserRouter>
         <GlobalStyle />
         <NavigationProvider>
-          <Navigation />
           <PageProvider>
+            <Navigation />
             <Routes />
+            <Footer />
           </PageProvider>
         </NavigationProvider>
       </BrowserRouter>

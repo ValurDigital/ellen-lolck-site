@@ -11,8 +11,7 @@ const Banner = ({ bannerHeader, bannerSubheader, bannerText, bannerImage }) => {
         <StyledRow>
           <Col sm="12" md="4">
             <TextWrapper>
-              <UnderlinedHeader header={bannerHeader} subheader={bannerSubheader} />
-              <Text dangerouslySetInnerHTML={{ __html: bannerText }} />
+              <UnderlinedHeader header={bannerHeader} subheader={bannerSubheader} text={bannerText} />
             </TextWrapper>
           </Col>
           <Col sm="12" md={{ span: 7, offset: 1 }}>

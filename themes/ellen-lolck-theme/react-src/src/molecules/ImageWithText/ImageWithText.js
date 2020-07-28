@@ -1,27 +1,29 @@
 import React from "react";
-import PropTypes from "prop-types";
 import styled from "styled-components";
 import { Container, Row, Col } from "react-bootstrap";
-import UnderlinedHeader from "../../atoms/UnderlinedHeader/UnderlinedHeader";
+import UnderlinedHeader from "../UnderlinedHeader/UnderlinedHeader";
 
 const ImageWithText = ({ imageSrc, header, subheader, text }) => {
-  return (
-    <StyledContainer fluid>
-      <Container>
-        <StyledRow>
-          <Col xs="12" md="6">
-            <StyledImage src={imageSrc.link} alt={imageSrc.alt} />
-          </Col>
-          <Col sm="12" md="4">
-            <TextWrapper>
-              <UnderlinedHeader header={header} subheader={subheader} color="green" />
-              <InnerTextWrapper dangerouslySetInnerHTML={{ __html: text }} />
-            </TextWrapper>
-          </Col>
-        </StyledRow>
-      </Container>
-    </StyledContainer>
-  );
+  if (imageSrc) {
+    return (
+      <StyledContainer fluid>
+        <Container>
+          <StyledRow>
+            <Col xs="12" md="6">
+              <StyledImage src={imageSrc.sizes.large} alt={imageSrc.alt} />
+            </Col>
+            <Col sm="12" md="4">
+              <TextWrapper>
+                <UnderlinedHeader header={header} subheader={subheader} color="green" />
+                <InnerTextWrapper dangerouslySetInnerHTML={{ __html: text }} />
+              </TextWrapper>
+            </Col>
+          </StyledRow>
+        </Container>
+      </StyledContainer>
+    );
+  }
+  return null;
 };
 
 const StyledContainer = styled(Container)`

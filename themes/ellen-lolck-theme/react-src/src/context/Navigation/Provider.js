@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { groupBy } from "lodash";
 import { createAction } from "../../utils/createAction";
 import NavigationContext from "./Context";
 import { MAIN_MENU_API_URL } from "../../utils/api/constants";
@@ -7,7 +8,9 @@ export const initialState = {
   isLoading: true,
   menuLinks: null,
 };
-
+const normalizeMenu = (menu) => {
+  return groupBy(menu, "menu_item_parent");
+};
 // Actions
 const request = () => createAction("request");
 const success = (menus) => createAction("success", menus);
@@ -20,7 +23,7 @@ const reducer = (state, action) => {
       return {
         ...state,
         isLoading: false,
-        menuLinks: action.payload,
+        menuLinks: groupBy(action.payload, "menu_item_parent"),
       };
 
     default:

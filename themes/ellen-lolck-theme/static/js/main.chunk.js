@@ -128,6 +128,203 @@ module.exports = __webpack_require__.p + "static/media/spinner.b77dac56.gif";
 
 /***/ }),
 
+/***/ "./src/atoms/ImageBox/ImageBox.js":
+/*!****************************************!*\
+  !*** ./src/atoms/ImageBox/ImageBox.js ***!
+  \****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+var _jsxFileName = "/Users/villadsvalur/Developer/ValurDigital/ellen-lolck-site/themes/ellen-lolck-theme/react-src/src/atoms/ImageBox/ImageBox.js";
+
+
+
+
+const ImageBox = ({
+  image,
+  header,
+  text,
+  link,
+  color
+}) => {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: link,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 7,
+      columnNumber: 5
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Wrapper, {
+    color: color,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 8,
+      columnNumber: 7
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ImageWrapper, {
+    color: color,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 9,
+      columnNumber: 9
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Image, {
+    src: image.sizes.large,
+    alt: image.alt,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 10,
+      columnNumber: 11
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ImageOverlay, {
+    color: color,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 11,
+      columnNumber: 11
+    }
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(TextWrapper, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 13,
+      columnNumber: 9
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Header, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 14,
+      columnNumber: 11
+    }
+  }, header), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Text, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 15,
+      columnNumber: 11
+    }
+  }, text)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Button, {
+    href: link,
+    color: color,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 17,
+      columnNumber: 9
+    }
+  }, "L\xE6s mere")));
+};
+
+const TextWrapper = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div`
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 45px;
+  padding: 0 25px;
+  transition: all 0.3s ease;
+`;
+const Wrapper = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div`
+  position: relative;
+  height: 350px;
+  width: 100%;
+  &:hover ${TextWrapper} {
+    bottom: 100px;
+  }
+`;
+const Header = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].h3`
+  color: white !important;
+`;
+const Text = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].span`
+  color: white;
+  transform: translate(-50%, -50%);
+`;
+const ImageWrapper = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div`
+  position: relative;
+  display: block;
+  height: 100%;
+  width: 100%;
+`;
+const Image = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].img`
+  height: 100%;
+  width: auto;
+`;
+const ImageOverlay = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div`
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  background-color: ${({
+  theme: {
+    colors
+  },
+  color
+}) => color ? colors.brand[color] : colors.brand.primary};
+  opacity: 0.6;
+`;
+const Button = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].a`
+  background-color: ${({
+  theme: {
+    colors
+  },
+  color
+}) => color ? colors.brand[color] : colors.brand.primary};
+  padding: 20px;
+  color: white !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  text-decoration: none;
+  font-size: ${({
+  theme: {
+    fontSizes
+  }
+}) => fontSizes.large};
+  &:hover {
+    text-decoration: none;
+  }
+`; // ImageBox.defaultProps = {};
+
+ImageBox.propTypes = {};
+/* harmony default export */ __webpack_exports__["default"] = (ImageBox);
+
+/***/ }),
+
+/***/ "./src/atoms/ImageBox/index.js":
+/*!*************************************!*\
+  !*** ./src/atoms/ImageBox/index.js ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ImageBox__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ImageBox */ "./src/atoms/ImageBox/ImageBox.js");
+
+/* harmony default export */ __webpack_exports__["default"] = (_ImageBox__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+/***/ }),
+
 /***/ "./src/atoms/Loading/Loading.js":
 /*!**************************************!*\
   !*** ./src/atoms/Loading/Loading.js ***!
@@ -337,90 +534,6 @@ SeoHelmet.propTypes = {
 
 /***/ }),
 
-/***/ "./src/atoms/UnderlinedHeader/UnderlinedHeader.js":
-/*!********************************************************!*\
-  !*** ./src/atoms/UnderlinedHeader/UnderlinedHeader.js ***!
-  \********************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
-var _jsxFileName = "/Users/villadsvalur/Developer/ValurDigital/ellen-lolck-site/themes/ellen-lolck-theme/react-src/src/atoms/UnderlinedHeader/UnderlinedHeader.js";
-
-
-
-
-const UnderlinedHeader = ({
-  header,
-  subheader,
-  color,
-  text
-}) => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Wrapper, {
-  subheader: true,
-  color: color,
-  __self: undefined,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 7,
-    columnNumber: 5
-  }
-}, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
-  __self: undefined,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 8,
-    columnNumber: 7
-  }
-}, header), subheader && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
-  __self: undefined,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 9,
-    columnNumber: 21
-  }
-}, "- ", subheader, " ")), text && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Text, {
-  dangerouslySetInnerHTML: {
-    __html: text
-  },
-  __self: undefined,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 11,
-    columnNumber: 14
-  }
-}));
-
-const Wrapper = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div`
-  border-bottom: 4px solid;
-  border-color: ${({
-  theme: {
-    colors
-  },
-  color
-}) => color ? colors.brand[color] : colors.brand.primary};
-  margin-bottom: 28px;
-  h2 {
-    ${({
-  subheader
-}) => subheader ? "margin-bottom:0;" : ""};
-  }
-`;
-const Text = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div``;
-UnderlinedHeader.propTypes = {
-  header: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired,
-  subheader: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string,
-  text: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string
-};
-/* harmony default export */ __webpack_exports__["default"] = (UnderlinedHeader);
-
-/***/ }),
-
 /***/ "./src/context/Navigation/Context.js":
 /*!*******************************************!*\
   !*** ./src/context/Navigation/Context.js ***!
@@ -451,10 +564,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initialState", function() { return initialState; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _utils_createAction__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utils/createAction */ "./src/utils/createAction.js");
-/* harmony import */ var _Context__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Context */ "./src/context/Navigation/Context.js");
-/* harmony import */ var _utils_api_constants__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../utils/api/constants */ "./src/utils/api/constants.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _utils_createAction__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../utils/createAction */ "./src/utils/createAction.js");
+/* harmony import */ var _Context__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Context */ "./src/context/Navigation/Context.js");
+/* harmony import */ var _utils_api_constants__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../utils/api/constants */ "./src/utils/api/constants.js");
 var _jsxFileName = "/Users/villadsvalur/Developer/ValurDigital/ellen-lolck-site/themes/ellen-lolck-theme/react-src/src/context/Navigation/Provider.js";
+
 
 
 
@@ -462,11 +578,16 @@ var _jsxFileName = "/Users/villadsvalur/Developer/ValurDigital/ellen-lolck-site/
 const initialState = {
   isLoading: true,
   menuLinks: null
+};
+
+const normalizeMenu = menu => {
+  return Object(lodash__WEBPACK_IMPORTED_MODULE_1__["groupBy"])(menu, "menu_item_parent");
 }; // Actions
 
-const request = () => Object(_utils_createAction__WEBPACK_IMPORTED_MODULE_1__["createAction"])("request");
 
-const success = menus => Object(_utils_createAction__WEBPACK_IMPORTED_MODULE_1__["createAction"])("success", menus);
+const request = () => Object(_utils_createAction__WEBPACK_IMPORTED_MODULE_2__["createAction"])("request");
+
+const success = menus => Object(_utils_createAction__WEBPACK_IMPORTED_MODULE_2__["createAction"])("success", menus);
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -478,7 +599,7 @@ const reducer = (state, action) => {
     case "success":
       return { ...state,
         isLoading: false,
-        menuLinks: action.payload
+        menuLinks: Object(lodash__WEBPACK_IMPORTED_MODULE_1__["groupBy"])(action.payload, "menu_item_parent")
       };
 
     default:
@@ -492,14 +613,14 @@ const NavigationProvider = ({
   const [state, dispatch] = react__WEBPACK_IMPORTED_MODULE_0___default.a.useReducer(reducer, initialState);
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
     dispatch(request());
-    fetch(_utils_api_constants__WEBPACK_IMPORTED_MODULE_3__["MAIN_MENU_API_URL"]).then(res => res.json()).then(menus => dispatch(success(menus)));
+    fetch(_utils_api_constants__WEBPACK_IMPORTED_MODULE_4__["MAIN_MENU_API_URL"]).then(res => res.json()).then(menus => dispatch(success(menus)));
   }, []);
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Context__WEBPACK_IMPORTED_MODULE_2__["default"].Provider, {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Context__WEBPACK_IMPORTED_MODULE_3__["default"].Provider, {
     value: state,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 41,
+      lineNumber: 44,
       columnNumber: 10
     }
   }, children);
@@ -657,7 +778,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
 /* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/index.js");
-/* harmony import */ var _atoms_UnderlinedHeader_UnderlinedHeader__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../atoms/UnderlinedHeader/UnderlinedHeader */ "./src/atoms/UnderlinedHeader/UnderlinedHeader.js");
+/* harmony import */ var _molecules_UnderlinedHeader_UnderlinedHeader__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../molecules/UnderlinedHeader/UnderlinedHeader */ "./src/molecules/UnderlinedHeader/UnderlinedHeader.js");
 var _jsxFileName = "/Users/villadsvalur/Developer/ValurDigital/ellen-lolck-site/themes/ellen-lolck-theme/react-src/src/molecules/Banner/Banner.js";
 
 
@@ -702,7 +823,7 @@ const Banner = ({
         lineNumber: 13,
         columnNumber: 13
       }
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_atoms_UnderlinedHeader_UnderlinedHeader__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_molecules_UnderlinedHeader_UnderlinedHeader__WEBPACK_IMPORTED_MODULE_4__["default"], {
       header: bannerHeader,
       subheader: bannerSubheader,
       text: bannerText,
@@ -789,7 +910,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
 /* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/index.js");
-/* harmony import */ var _atoms_UnderlinedHeader_UnderlinedHeader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../atoms/UnderlinedHeader/UnderlinedHeader */ "./src/atoms/UnderlinedHeader/UnderlinedHeader.js");
+/* harmony import */ var _molecules_UnderlinedHeader_UnderlinedHeader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../molecules/UnderlinedHeader/UnderlinedHeader */ "./src/molecules/UnderlinedHeader/UnderlinedHeader.js");
 var _jsxFileName = "/Users/villadsvalur/Developer/ValurDigital/ellen-lolck-site/themes/ellen-lolck-theme/react-src/src/molecules/ContactForm/ContactForm.js";
 
 
@@ -827,7 +948,7 @@ const ContactForm = () => {
       lineNumber: 11,
       columnNumber: 11
     }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_atoms_UnderlinedHeader_UnderlinedHeader__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_molecules_UnderlinedHeader_UnderlinedHeader__WEBPACK_IMPORTED_MODULE_3__["default"], {
     header: "Kontakt mig",
     __self: undefined,
     __source: {
@@ -908,13 +1029,10 @@ const StyledContainer = Object(styled_components__WEBPACK_IMPORTED_MODULE_1__["d
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
-/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/index.js");
-/* harmony import */ var _atoms_UnderlinedHeader_UnderlinedHeader__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../atoms/UnderlinedHeader/UnderlinedHeader */ "./src/atoms/UnderlinedHeader/UnderlinedHeader.js");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/index.js");
+/* harmony import */ var _UnderlinedHeader_UnderlinedHeader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../UnderlinedHeader/UnderlinedHeader */ "./src/molecules/UnderlinedHeader/UnderlinedHeader.js");
 var _jsxFileName = "/Users/villadsvalur/Developer/ValurDigital/ellen-lolck-site/themes/ellen-lolck-theme/react-src/src/molecules/ImageWithText/ImageWithText.js";
-
 
 
 
@@ -926,86 +1044,90 @@ const ImageWithText = ({
   subheader,
   text
 }) => {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledContainer, {
-    fluid: true,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 9,
-      columnNumber: 5
-    }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["Container"], {
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 10,
-      columnNumber: 7
-    }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledRow, {
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 11,
-      columnNumber: 9
-    }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["Col"], {
-    xs: "12",
-    md: "6",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 12,
-      columnNumber: 11
-    }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledImage, {
-    src: imageSrc.link,
-    alt: imageSrc.alt,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 13,
-      columnNumber: 13
-    }
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["Col"], {
-    sm: "12",
-    md: "4",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 15,
-      columnNumber: 11
-    }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(TextWrapper, {
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 16,
-      columnNumber: 13
-    }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_atoms_UnderlinedHeader_UnderlinedHeader__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    header: header,
-    subheader: subheader,
-    color: "green",
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 17,
-      columnNumber: 15
-    }
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(InnerTextWrapper, {
-    dangerouslySetInnerHTML: {
-      __html: text
-    },
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 18,
-      columnNumber: 15
-    }
-  }))))));
+  if (imageSrc) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledContainer, {
+      fluid: true,
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 9,
+        columnNumber: 7
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Container"], {
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 10,
+        columnNumber: 9
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledRow, {
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 11,
+        columnNumber: 11
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Col"], {
+      xs: "12",
+      md: "6",
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 12,
+        columnNumber: 13
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledImage, {
+      src: imageSrc.sizes.large,
+      alt: imageSrc.alt,
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 13,
+        columnNumber: 15
+      }
+    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Col"], {
+      sm: "12",
+      md: "4",
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 15,
+        columnNumber: 13
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(TextWrapper, {
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 16,
+        columnNumber: 15
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_UnderlinedHeader_UnderlinedHeader__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      header: header,
+      subheader: subheader,
+      color: "green",
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 17,
+        columnNumber: 17
+      }
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(InnerTextWrapper, {
+      dangerouslySetInnerHTML: {
+        __html: text
+      },
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 18,
+        columnNumber: 17
+      }
+    }))))));
+  }
+
+  return null;
 };
 
-const StyledContainer = Object(styled_components__WEBPACK_IMPORTED_MODULE_2__["default"])(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["Container"])`
+const StyledContainer = Object(styled_components__WEBPACK_IMPORTED_MODULE_1__["default"])(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Container"])`
   background-color: ${({
   theme: {
     colors
@@ -1022,10 +1144,10 @@ const StyledContainer = Object(styled_components__WEBPACK_IMPORTED_MODULE_2__["d
   }
 }) => padding.sectionBottom};
 `;
-const StyledRow = Object(styled_components__WEBPACK_IMPORTED_MODULE_2__["default"])(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["Row"])``;
-const TextWrapper = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div``;
-const InnerTextWrapper = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div``;
-const StyledImage = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].img`
+const StyledRow = Object(styled_components__WEBPACK_IMPORTED_MODULE_1__["default"])(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Row"])``;
+const TextWrapper = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div``;
+const InnerTextWrapper = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div``;
+const StyledImage = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].img`
   height: 400px;
   width: auto;
 `;
@@ -1050,10 +1172,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _context_Navigation_Context__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../context/Navigation/Context */ "./src/context/Navigation/Context.js");
 /* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/index.js");
-/* harmony import */ var _assets_images_LOGOEllen_png__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../assets/images/LOGOEllen.png */ "./src/assets/images/LOGOEllen.png");
-/* harmony import */ var _assets_images_LOGOEllen_png__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_assets_images_LOGOEllen_png__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _utils_theme_colors__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../utils/theme/colors */ "./src/utils/theme/colors.js");
+/* harmony import */ var _styled_icons_fa_solid__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @styled-icons/fa-solid */ "./node_modules/@styled-icons/fa-solid/index.esm.js");
+/* harmony import */ var _assets_images_LOGOEllen_png__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../assets/images/LOGOEllen.png */ "./src/assets/images/LOGOEllen.png");
+/* harmony import */ var _assets_images_LOGOEllen_png__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_assets_images_LOGOEllen_png__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _utils_theme_colors__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../utils/theme/colors */ "./src/utils/theme/colors.js");
 var _jsxFileName = "/Users/villadsvalur/Developer/ValurDigital/ellen-lolck-site/themes/ellen-lolck-theme/react-src/src/molecules/Navigation/Navigation.js";
+
 
 
 
@@ -1074,29 +1198,29 @@ const Navigation = () => {
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 14,
+        lineNumber: 15,
         columnNumber: 7
       }
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__["Container"], {
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 15,
+        lineNumber: 16,
         columnNumber: 9
       }
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(MenuWrapper, {
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 16,
+        lineNumber: 17,
         columnNumber: 11
       }
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(LogoImage, {
-      src: _assets_images_LOGOEllen_png__WEBPACK_IMPORTED_MODULE_6___default.a,
+      src: _assets_images_LOGOEllen_png__WEBPACK_IMPORTED_MODULE_7___default.a,
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 17,
+        lineNumber: 18,
         columnNumber: 13
       }
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Menu, {
@@ -1105,10 +1229,10 @@ const Navigation = () => {
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 18,
+        lineNumber: 19,
         columnNumber: 13
       }
-    }, menuLinks.map(link => {
+    }, menuLinks[0].map(link => {
       const {
         ID,
         slug,
@@ -1116,29 +1240,96 @@ const Navigation = () => {
         menu_item_parent
       } = link;
 
-      if (menu_item_parent === "0") {
+      if (menuLinks[ID]) {
+        const children = menuLinks[ID].map(({
+          ID,
+          slug,
+          title,
+          menu_item_parent,
+          url
+        }) => {
+          const path = new URL(url).pathname;
+          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+            __self: undefined,
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 26,
+              columnNumber: 23
+            }
+          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["NavLink"], {
+            to: path,
+            activeStyle: {
+              borderBottom: "1px solid",
+              borderColor: _utils_theme_colors__WEBPACK_IMPORTED_MODULE_8__["default"].white
+            },
+            __self: undefined,
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 27,
+              columnNumber: 25
+            }
+          }, title));
+        });
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(MenuItem, {
           key: ID,
           __self: undefined,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 23,
+            lineNumber: 34,
             columnNumber: 21
           }
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["NavLink"], {
+          exact: true,
           to: `/ellen-lolck/${slug === "forside" ? "" : slug}`,
           activeStyle: {
             borderBottom: "1px solid",
-            borderColor: _utils_theme_colors__WEBPACK_IMPORTED_MODULE_7__["default"].brand.primary
+            borderColor: _utils_theme_colors__WEBPACK_IMPORTED_MODULE_8__["default"].brand.primary
           },
           __self: undefined,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 24,
+            lineNumber: 35,
             columnNumber: 23
           }
-        }, title));
+        }, title, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Chevron, {
+          __self: undefined,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 41,
+            columnNumber: 25
+          }
+        })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(MenuDropdown, {
+          __self: undefined,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 43,
+            columnNumber: 23
+          }
+        }, children));
       }
+
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(MenuItem, {
+        key: ID,
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 49,
+          columnNumber: 19
+        }
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["NavLink"], {
+        exact: true,
+        to: `/ellen-lolck/${slug === "forside" ? "" : slug}`,
+        activeStyle: {
+          borderBottom: "1px solid",
+          borderColor: _utils_theme_colors__WEBPACK_IMPORTED_MODULE_8__["default"].brand.primary
+        },
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 50,
+          columnNumber: 21
+        }
+      }, title));
     })))));
   }
 
@@ -1159,8 +1350,50 @@ const Menu = Object(styled_components__WEBPACK_IMPORTED_MODULE_2__["default"])(r
   flex-direction: row;
   width: 100%;
 `;
+const MenuDropdown = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].ul`
+  display: none;
+  position: absolute;
+  top: 100px;
+  left: 0;
+  width: 100%;
+  justify-content: space-evenly;
+  background: ${({
+  theme: {
+    colors
+  }
+}) => colors.brand.primary};
+  padding: 25px 0px;
+  color: white;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 10;
+  li {
+    text-decoration: none;
+    list-style: none;
+    a {
+      color: ${({
+  theme: {
+    colors
+  }
+}) => colors.white};
+    }
+  }
+  &:hover {
+    display: flex;
+  }
+  font-size: ${({
+  theme: {
+    fontSizes
+  }
+}) => fontSizes.large};
+`;
 const MenuItem = Object(styled_components__WEBPACK_IMPORTED_MODULE_2__["default"])(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__["Nav"].Item)`
-  margin-bottom: 15px;
+  font-size: ${({
+  theme: {
+    fontSizes
+  }
+}) => fontSizes.large};
+  padding-bottom: 15px;
   a {
     color: ${({
   theme: {
@@ -1173,8 +1406,217 @@ const MenuItem = Object(styled_components__WEBPACK_IMPORTED_MODULE_2__["default"
   a:hover {
     text-decoration: none;
   }
+  &:hover ${MenuDropdown} {
+    display: flex;
+  }
+`;
+const Chevron = Object(styled_components__WEBPACK_IMPORTED_MODULE_2__["default"])(_styled_icons_fa_solid__WEBPACK_IMPORTED_MODULE_6__["ChevronDown"])`
+  height: 16px;
+  margin-left: 10px;
 `;
 /* harmony default export */ __webpack_exports__["default"] = (Navigation);
+
+/***/ }),
+
+/***/ "./src/molecules/UnderlinedHeader/UnderlinedHeader.js":
+/*!************************************************************!*\
+  !*** ./src/molecules/UnderlinedHeader/UnderlinedHeader.js ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+var _jsxFileName = "/Users/villadsvalur/Developer/ValurDigital/ellen-lolck-site/themes/ellen-lolck-theme/react-src/src/molecules/UnderlinedHeader/UnderlinedHeader.js";
+
+
+
+
+const UnderlinedHeader = ({
+  header,
+  subheader,
+  color,
+  text,
+  centered
+}) => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Wrapper, {
+  subheader: true,
+  centered: centered,
+  color: color,
+  __self: undefined,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 7,
+    columnNumber: 5
+  }
+}, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+  __self: undefined,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 8,
+    columnNumber: 7
+  }
+}, header), subheader && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+  __self: undefined,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 9,
+    columnNumber: 21
+  }
+}, "- ", subheader, " ")), text && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Text, {
+  dangerouslySetInnerHTML: {
+    __html: text
+  },
+  __self: undefined,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 11,
+    columnNumber: 14
+  }
+}));
+
+const Wrapper = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div`
+  border-bottom: 4px solid;
+  border-color: ${({
+  theme: {
+    colors
+  },
+  color
+}) => color ? colors.brand[color] : colors.brand.primary};
+  margin-bottom: 28px;
+  h2 {
+    ${({
+  subheader
+}) => subheader ? "margin-bottom:0;" : ""};
+    ${({
+  centered
+}) => centered ? "text-align:center;" : ""}
+  }
+`;
+const Text = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div``;
+UnderlinedHeader.propTypes = {
+  header: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired,
+  subheader: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string,
+  text: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string,
+  centered: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.bool
+};
+/* harmony default export */ __webpack_exports__["default"] = (UnderlinedHeader);
+
+/***/ }),
+
+/***/ "./src/organisms/CenteredText/CenteredText.js":
+/*!****************************************************!*\
+  !*** ./src/organisms/CenteredText/CenteredText.js ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/index.js");
+/* harmony import */ var _molecules_UnderlinedHeader_UnderlinedHeader__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../molecules/UnderlinedHeader/UnderlinedHeader */ "./src/molecules/UnderlinedHeader/UnderlinedHeader.js");
+var _jsxFileName = "/Users/villadsvalur/Developer/ValurDigital/ellen-lolck-site/themes/ellen-lolck-theme/react-src/src/organisms/CenteredText/CenteredText.js";
+
+
+
+
+
+
+const CenteredText = ({
+  header,
+  text
+}) => {
+  if (header !== "") {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledContainer, {
+      fluid: true,
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 10,
+        columnNumber: 7
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["Container"], {
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 11,
+        columnNumber: 9
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["Row"], {
+      className: "d-flex justify-content-center text-align-center",
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 12,
+        columnNumber: 11
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["Col"], {
+      xs: "8",
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 13,
+        columnNumber: 13
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_molecules_UnderlinedHeader_UnderlinedHeader__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      color: "red",
+      header: header,
+      centered: true,
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 14,
+        columnNumber: 15
+      }
+    }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["Row"], {
+      className: "d-flex justify-content-center text-align-center",
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 18,
+        columnNumber: 11
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["Col"], {
+      xs: "10",
+      dangerouslySetInnerHTML: {
+        __html: text
+      },
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 19,
+        columnNumber: 13
+      }
+    }))));
+  }
+
+  return null;
+};
+
+const StyledContainer = Object(styled_components__WEBPACK_IMPORTED_MODULE_2__["default"])(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["Container"])`
+  padding-top: ${({
+  theme: {
+    padding
+  }
+}) => padding.sectionTop};
+  padding-bottom: ${({
+  theme: {
+    padding
+  }
+}) => padding.sectionBottom};
+`; // CenteredText.defaultProps = {};
+
+CenteredText.propTypes = {};
+/* harmony default export */ __webpack_exports__["default"] = (CenteredText);
 
 /***/ }),
 
@@ -1193,61 +1635,73 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
 /* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/index.js");
+/* harmony import */ var _context_Navigation_Context__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../context/Navigation/Context */ "./src/context/Navigation/Context.js");
+/* harmony import */ var _context_Pages_Context__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../context/Pages/Context */ "./src/context/Pages/Context.js");
 var _jsxFileName = "/Users/villadsvalur/Developer/ValurDigital/ellen-lolck-site/themes/ellen-lolck-theme/react-src/src/organisms/Footer/Footer.js";
 
 
 
 
 
+
+
 const Footer = () => {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledContainer, {
-    fluid: true,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 8,
-      columnNumber: 5
-    }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["Container"], {
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 9,
-      columnNumber: 7
-    }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["Col"], {
-    xs: {
-      span: 6,
-      offset: 3
-    },
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 10,
-      columnNumber: 9
-    }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ContactInfo, {
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 11,
-      columnNumber: 11
-    }
-  }, "Ellen Lolck Madsen | Tlf.: 12345678 | lolck@hotmail.com ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", {
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 12,
-      columnNumber: 69
-    }
-  }), "Adressevej 12, 8200 Aarhus N", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", {
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 14,
-      columnNumber: 13
-    }
-  }), "Cvr.:12347585"))));
+  const {
+    isLoading
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_context_Pages_Context__WEBPACK_IMPORTED_MODULE_5__["default"]);
+
+  if (!isLoading) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledContainer, {
+      fluid: true,
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 12,
+        columnNumber: 7
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["Container"], {
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 13,
+        columnNumber: 9
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["Col"], {
+      xs: {
+        span: 6,
+        offset: 3
+      },
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 14,
+        columnNumber: 11
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ContactInfo, {
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 15,
+        columnNumber: 13
+      }
+    }, "Ellen Lolck Madsen | Tlf.: 12345678 | lolck@hotmail.com ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", {
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 16,
+        columnNumber: 71
+      }
+    }), "Adressevej 12, 8200 Aarhus N", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", {
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 18,
+        columnNumber: 15
+      }
+    }), "Cvr.:12347585"))));
+  }
+
+  return null;
 };
 
 const StyledContainer = Object(styled_components__WEBPACK_IMPORTED_MODULE_2__["default"])(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["Container"])`
@@ -1288,6 +1742,122 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Footer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Footer.js */ "./src/organisms/Footer/Footer.js");
 
 /* harmony default export */ __webpack_exports__["default"] = (_Footer_js__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+/***/ }),
+
+/***/ "./src/organisms/ServiceBoxes/ServiceBoxes.js":
+/*!****************************************************!*\
+  !*** ./src/organisms/ServiceBoxes/ServiceBoxes.js ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/index.js");
+/* harmony import */ var _atoms_ImageBox__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../atoms/ImageBox */ "./src/atoms/ImageBox/index.js");
+var _jsxFileName = "/Users/villadsvalur/Developer/ValurDigital/ellen-lolck-site/themes/ellen-lolck-theme/react-src/src/organisms/ServiceBoxes/ServiceBoxes.js";
+
+
+
+
+
+
+const ServiceBoxes = ({
+  firstBox,
+  secondBox,
+  thirdBox
+}) => {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledContainer, {
+    fluid: true,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 9,
+      columnNumber: 5
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["Container"], {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 10,
+      columnNumber: 7
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["Row"], {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 11,
+      columnNumber: 9
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["Col"], {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 12,
+      columnNumber: 11
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_atoms_ImageBox__WEBPACK_IMPORTED_MODULE_4__["default"], Object.assign({}, firstBox, {
+    color: "primary",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 13,
+      columnNumber: 13
+    }
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["Col"], {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 15,
+      columnNumber: 11
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_atoms_ImageBox__WEBPACK_IMPORTED_MODULE_4__["default"], Object.assign({}, secondBox, {
+    color: "green",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 16,
+      columnNumber: 13
+    }
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["Col"], {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 18,
+      columnNumber: 11
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_atoms_ImageBox__WEBPACK_IMPORTED_MODULE_4__["default"], Object.assign({}, thirdBox, {
+    color: "red",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 19,
+      columnNumber: 13
+    }
+  }))))));
+};
+
+const StyledContainer = Object(styled_components__WEBPACK_IMPORTED_MODULE_2__["default"])(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["Container"])`
+  padding-top: ${({
+  theme: {
+    padding
+  }
+}) => padding.sectionTop};
+  padding-bottom: ${({
+  theme: {
+    padding
+  }
+}) => padding.sectionBottom};
+`; // ServiceBoxes.defaultProps = {};
+
+ServiceBoxes.propTypes = {};
+/* harmony default export */ __webpack_exports__["default"] = (ServiceBoxes);
 
 /***/ }),
 
@@ -1569,7 +2139,7 @@ const Routes = () => {
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 19,
+        lineNumber: 20,
         columnNumber: 12
       }
     });
@@ -1663,6 +2233,7 @@ __webpack_require__.r(__webpack_exports__);
 const colors = {
   backgroundColor: "#fff",
   textMain: "#000",
+  white: "#fff",
   brand: {
     primary: "#E29A10",
     green: "#5F7628",
@@ -1793,7 +2364,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/index.js");
 /* harmony import */ var _molecules_Banner_Banner__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../molecules/Banner/Banner */ "./src/molecules/Banner/Banner.js");
 /* harmony import */ var _molecules_ImageWithText_ImageWithText__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../molecules/ImageWithText/ImageWithText */ "./src/molecules/ImageWithText/ImageWithText.js");
+/* harmony import */ var _organisms_CenteredText_CenteredText__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../organisms/CenteredText/CenteredText */ "./src/organisms/CenteredText/CenteredText.js");
+/* harmony import */ var _organisms_ServiceBoxes_ServiceBoxes__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../organisms/ServiceBoxes/ServiceBoxes */ "./src/organisms/ServiceBoxes/ServiceBoxes.js");
+/* harmony import */ var _molecules_ContactForm_ContactForm__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../molecules/ContactForm/ContactForm */ "./src/molecules/ContactForm/ContactForm.js");
 var _jsxFileName = "/Users/villadsvalur/Developer/ValurDigital/ellen-lolck-site/themes/ellen-lolck-theme/react-src/src/views/FrontPage/FrontPage.js";
+
+
+
 
 
 
@@ -1808,17 +2385,38 @@ const FrontPage = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 11,
+      lineNumber: 14,
       columnNumber: 7
     }
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_molecules_ImageWithText_ImageWithText__WEBPACK_IMPORTED_MODULE_5__["default"], Object.assign({}, acf.imageWithText, {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 12,
+      lineNumber: 15,
       columnNumber: 7
     }
-  })));
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_organisms_CenteredText_CenteredText__WEBPACK_IMPORTED_MODULE_6__["default"], Object.assign({}, acf.centeredText, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 16,
+      columnNumber: 7
+    }
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_organisms_ServiceBoxes_ServiceBoxes__WEBPACK_IMPORTED_MODULE_7__["default"], Object.assign({}, acf.serviceBoxes, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 17,
+      columnNumber: 7
+    }
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_molecules_ContactForm_ContactForm__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 18,
+      columnNumber: 7
+    }
+  }));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (FrontPage);
@@ -1840,7 +2438,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
 /* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/index.js");
-/* harmony import */ var _atoms_UnderlinedHeader_UnderlinedHeader__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../atoms/UnderlinedHeader/UnderlinedHeader */ "./src/atoms/UnderlinedHeader/UnderlinedHeader.js");
+/* harmony import */ var _molecules_UnderlinedHeader_UnderlinedHeader__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../molecules/UnderlinedHeader/UnderlinedHeader */ "./src/molecules/UnderlinedHeader/UnderlinedHeader.js");
 var _jsxFileName = "/Users/villadsvalur/Developer/ValurDigital/ellen-lolck-site/themes/ellen-lolck-theme/react-src/src/views/PageNotFound/PageNotFound.js";
 
 
@@ -1871,7 +2469,7 @@ const PageNotFound = () => {
       lineNumber: 11,
       columnNumber: 9
     }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_atoms_UnderlinedHeader_UnderlinedHeader__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_molecules_UnderlinedHeader_UnderlinedHeader__WEBPACK_IMPORTED_MODULE_4__["default"], {
     header: "Siden kunne desv\xE6rre ikke findes",
     __self: undefined,
     __source: {
@@ -1919,5 +2517,5 @@ module.exports = __webpack_require__(/*! /Users/villadsvalur/Developer/ValurDigi
 
 /***/ })
 
-},[[0,"runtime-main",0]]]);
+},[[0,"runtime-main",1]]]);
 //# sourceMappingURL=main.chunk.js.map

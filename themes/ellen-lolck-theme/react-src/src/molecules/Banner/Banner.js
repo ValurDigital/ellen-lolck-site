@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { Row, Container, Col } from "react-bootstrap";
-import UnderlinedHeader from "../../atoms/UnderlinedHeader/UnderlinedHeader";
+import UnderlinedHeader from "../../molecules/UnderlinedHeader/UnderlinedHeader";
 
 const Banner = ({ bannerHeader, bannerSubheader, bannerText, bannerImage }) => {
   if (bannerImage) {

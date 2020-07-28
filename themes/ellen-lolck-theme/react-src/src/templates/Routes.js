@@ -15,10 +15,10 @@ const Routes = () => {
       }
       return <Route key={page.slug} exact path={`/ellen-lolck${page.parent ? "/" + page.parent : ""}/${page.slug}`} render={() => <Page {...page} />} />;
     });
+
   if (isLoading) {
     return <Loading />;
   }
-
   return (
     <Switch>
       {pageRoutes()}

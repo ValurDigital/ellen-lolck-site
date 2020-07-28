@@ -4,6 +4,7 @@
 const colors = {
   backgroundColor: "#fff",
   textMain: "#000",
+  white: "#fff",
   brand: {
     primary: "#E29A10",
     green: "#5F7628",

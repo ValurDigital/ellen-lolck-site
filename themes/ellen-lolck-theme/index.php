@@ -39,7 +39,7 @@
         Learn how to configure a non-root public URL by running `npm run wpbuild`.
     -->
     <title><?php bloginfo(‘name’); ?></title>
-<link href="/ellen-lolck/wp-content/themes/ellen-lolck-theme/static/css/1.chunk.css?16527af5a1073660b177" rel="stylesheet"></head>
+<link href="/ellen-lolck/wp-content/themes/ellen-lolck-theme/static/css/1.chunk.css?399b1987fd8e62b6e5c1" rel="stylesheet"></head>
     <body>
     <noscript>
         You need to enable JavaScript to run this app.
@@ -55,5 +55,5 @@
         To begin the development, run `npm run wpstart` or `yarn wpstart`.
         To create a production bundle, use `npm run wpbuild` or `yarn wpbuild`.
     -->
-    <script src="/ellen-lolck/wp-content/themes/ellen-lolck-theme/static/js/bundle.js?16527af5a1073660b177"></script><script src="/ellen-lolck/wp-content/themes/ellen-lolck-theme/static/js/1.chunk.js?16527af5a1073660b177"></script><script src="/ellen-lolck/wp-content/themes/ellen-lolck-theme/static/js/main.chunk.js?16527af5a1073660b177"></script></body>
+    <script src="/ellen-lolck/wp-content/themes/ellen-lolck-theme/static/js/bundle.js?399b1987fd8e62b6e5c1"></script><script src="/ellen-lolck/wp-content/themes/ellen-lolck-theme/static/js/1.chunk.js?399b1987fd8e62b6e5c1"></script><script src="/ellen-lolck/wp-content/themes/ellen-lolck-theme/static/js/main.chunk.js?399b1987fd8e62b6e5c1"></script></body>
 </html>

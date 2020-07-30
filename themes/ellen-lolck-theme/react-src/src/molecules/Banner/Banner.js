@@ -4,14 +4,14 @@ import styled from "styled-components";
 import { Row, Container, Col } from "react-bootstrap";
 import UnderlinedHeader from "../../molecules/UnderlinedHeader/UnderlinedHeader";
 
-const Banner = ({ bannerHeader, bannerSubheader, bannerText, bannerImage }) => {
+const Banner = ({ bannerHeader, bannerSubheader, bannerText, bannerImage, color }) => {
   if (bannerImage) {
     return (
       <Container>
         <StyledRow>
           <Col sm="12" md="4">
             <TextWrapper>
-              <UnderlinedHeader header={bannerHeader} subheader={bannerSubheader} text={bannerText} />
+              <UnderlinedHeader header={bannerHeader} subheader={bannerSubheader} text={bannerText} color={color} />
             </TextWrapper>
           </Col>
           <Col sm="12" md={{ span: 7, offset: 1 }}>
@@ -35,8 +35,9 @@ const ImageWrapper = styled.div`
   height: 500px;
 `;
 const Image = styled.img`
-  height: 100%;
-  width: auto;
+  height: auto;
+  width: 100%;
+  max-height: 500px;
   object-fit: contain;
 `;
 

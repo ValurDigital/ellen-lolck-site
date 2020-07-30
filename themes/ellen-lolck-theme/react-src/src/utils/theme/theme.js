@@ -13,6 +13,35 @@ export const GlobalStyle = createGlobalStyle`
     font-family: ${fontFamily.name}, ${fontFamily.type};
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;  
+
+    .wp-block-group__inner-container{
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      counter-reset: number;
+      flex-wrap: wrap;
+    }
+
+    .wp-block-quote{
+      width:50%; 
+      counter-increment: number;
+      width: 50%;
+      counter-increment: number;
+      display: flex;
+      padding: 20px;
+      flex-direction: column;
+       &::before{
+         content: counter(number)".";
+         font-weight: bold;
+         font-size: ${({ theme: { fontSizes } }) => fontSizes.large};
+         line-height: 1;
+         margin-right: 10px;
+       }
+       p{
+        display: flex;
+        flex-direction:column;
+       }
+     }
   }
 `;
 

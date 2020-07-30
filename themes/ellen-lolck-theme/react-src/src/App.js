@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import { BrowserRouter } from "react-router-dom";
 import NavigationProvider from "./context/Navigation/Provider";
 import PageProvider from "./context/Pages/Provider";
@@ -12,9 +12,9 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <BrowserRouter>
-        <GlobalStyle />
         <NavigationProvider>
           <PageProvider>
+            <GlobalStyle />
             <Navigation />
             <Routes />
             <Footer />

@@ -9,13 +9,13 @@ const ServiceBoxes = ({ firstBox, secondBox, thirdBox }) => {
     <StyledContainer fluid>
       <Container>
         <Row>
-          <Col>
+          <Col xs={{ span: 8, offset: 2 }} md={{ span: 4, offset: 0 }}>
             <ImageBox {...firstBox} color="primary" />
           </Col>
-          <Col>
+          <Col xs={{ span: 8, offset: 2 }} md={{ span: 4, offset: 0 }}>
             <ImageBox {...secondBox} color="green" />
           </Col>
-          <Col>
+          <Col xs={{ span: 8, offset: 2 }} md={{ span: 4, offset: 0 }}>
             <ImageBox {...thirdBox} color="red" />
           </Col>
         </Row>
@@ -23,7 +23,6 @@ const ServiceBoxes = ({ firstBox, secondBox, thirdBox }) => {
     </StyledContainer>
   );
 };
-
 
 const StyledContainer = styled(Container)`
   padding-top: ${({ theme: { padding } }) => padding.sectionTop};

@@ -34,6 +34,7 @@ const Wrapper = styled.div`
   position: relative;
   height: 350px;
   width: 100%;
+  margin-bottom: 24px;
   &:hover ${TextWrapper} {
     bottom: 100px;
   }
@@ -52,8 +53,8 @@ const ImageWrapper = styled.div`
   width: 100%;
 `;
 const Image = styled.img`
-  height: 100%;
-  width: auto;
+  height: auto;
+  width: 100%;
 `;
 const ImageOverlay = styled.div`
   display: block;

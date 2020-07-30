@@ -46,28 +46,28 @@ const App = () => {
       lineNumber: 14,
       columnNumber: 7
     }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_theme_theme__WEBPACK_IMPORTED_MODULE_5__["GlobalStyle"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_context_Navigation_Provider__WEBPACK_IMPORTED_MODULE_2__["default"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 15,
       columnNumber: 9
     }
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_context_Navigation_Provider__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 16,
-      columnNumber: 9
-    }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_context_Pages_Provider__WEBPACK_IMPORTED_MODULE_3__["default"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 17,
+      lineNumber: 16,
       columnNumber: 11
     }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_molecules_Navigation_Navigation__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_theme_theme__WEBPACK_IMPORTED_MODULE_5__["GlobalStyle"], {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 17,
+      columnNumber: 13
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_molecules_Navigation_Navigation__WEBPACK_IMPORTED_MODULE_4__["default"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -240,6 +240,7 @@ const Wrapper = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div`
   position: relative;
   height: 350px;
   width: 100%;
+  margin-bottom: 24px;
   &:hover ${TextWrapper} {
     bottom: 100px;
   }
@@ -258,8 +259,8 @@ const ImageWrapper = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].d
   width: 100%;
 `;
 const Image = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].img`
-  height: 100%;
-  width: auto;
+  height: auto;
+  width: 100%;
 `;
 const ImageOverlay = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div`
   display: block;
@@ -790,7 +791,8 @@ const Banner = ({
   bannerHeader,
   bannerSubheader,
   bannerText,
-  bannerImage
+  bannerImage,
+  color
 }) => {
   if (bannerImage) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["Container"], {
@@ -827,6 +829,7 @@ const Banner = ({
       header: bannerHeader,
       subheader: bannerSubheader,
       text: bannerText,
+      color: color,
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
@@ -883,8 +886,9 @@ const ImageWrapper = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].d
   height: 500px;
 `;
 const Image = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].img`
-  height: 100%;
-  width: auto;
+  height: auto;
+  width: 100%;
+  max-height: 500px;
   object-fit: contain;
 `;
 const TextWrapper = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div`
@@ -911,41 +915,113 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
 /* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/index.js");
 /* harmony import */ var _molecules_UnderlinedHeader_UnderlinedHeader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../molecules/UnderlinedHeader/UnderlinedHeader */ "./src/molecules/UnderlinedHeader/UnderlinedHeader.js");
+/* harmony import */ var _styled_icons_evaicons_solid_CheckmarkCircle__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @styled-icons/evaicons-solid/CheckmarkCircle */ "./node_modules/@styled-icons/evaicons-solid/CheckmarkCircle/CheckmarkCircle.esm.js");
 var _jsxFileName = "/Users/villadsvalur/Developer/ValurDigital/ellen-lolck-site/themes/ellen-lolck-theme/react-src/src/molecules/ContactForm/ContactForm.js";
 
 
 
 
 
+const initialState = {
+  username: "",
+  email: "",
+  message: ""
+};
+
+const reducer = (state, {
+  field,
+  value
+}) => ({ ...state,
+  [field]: value
+});
+
 const ContactForm = () => {
+  const firstRender = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])(true);
+  const [response, setResponse] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
+    message: "",
+    status: ""
+  });
+  const [messageValid, setMessageValid] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
+  const [emailValid, setEmailValid] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
+  const [usernameValid, setUserNameValid] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
+  const [state, dispatch] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useReducer"])(reducer, initialState);
+
+  const onInputChange = e => dispatch({
+    field: e.target.name,
+    value: e.target.value
+  });
+
+  const onInputSubmit = e => {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append("username", state.username);
+    formData.append("email", state.email);
+    formData.append("message", state.message);
+    return fetch("/ellen-lolck/wp-json/contact-form-7/v1/contact-forms/207/feedback", {
+      method: "POST",
+      body: formData
+    }).then(res => res.json()).then(({
+      message,
+      status
+    }) => setResponse({
+      message,
+      status
+    }));
+  };
+
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    const pattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+
+    if (firstRender.current) {
+      firstRender.current = false;
+    }
+
+    if (state.email.match("@")) {
+      setEmailValid(true);
+    } else {
+      setEmailValid(false);
+    }
+
+    if (state.username.length > 0) {
+      setUserNameValid(true);
+    } else {
+      setUserNameValid(false);
+    }
+
+    if (state.message.length > 5) {
+      setMessageValid(true);
+    } else {
+      setMessageValid(false);
+    }
+  }, [emailValid, messageValid, usernameValid, firstRender, state.username, state.message, state.email]);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledContainer, {
     fluid: true,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 8,
+      lineNumber: 64,
       columnNumber: 5
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Container"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 9,
+      lineNumber: 65,
       columnNumber: 7
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Row"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 10,
+      lineNumber: 66,
       columnNumber: 9
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Col"], {
-    xs: "3",
+    md: "4",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 11,
+      lineNumber: 67,
       columnNumber: 11
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_molecules_UnderlinedHeader_UnderlinedHeader__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -953,46 +1029,186 @@ const ContactForm = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 12,
+      lineNumber: 68,
       columnNumber: 13
     }
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Row"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 15,
+      lineNumber: 71,
       columnNumber: 9
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Col"], {
-    xs: "4",
+    md: "4",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 16,
+      lineNumber: 72,
       columnNumber: 11
     }
   }, "Har du sp\xF8rgsm\xE5l, s\xE5 send mig gerne en besked. S\xE5 vender jeg tilbage snarest muligt.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Row"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 18,
+      lineNumber: 74,
+      columnNumber: 9
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Col"], {
+    md: "4",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 75,
+      columnNumber: 11
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Row"], {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 76,
+      columnNumber: 13
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Col"], {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 77,
+      columnNumber: 15
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Checkmark, {
+    valid: emailValid,
+    firstRender: firstRender,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 78,
+      columnNumber: 17
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Input, {
+    type: "email",
+    name: "email",
+    placeholder: "Din e-mail",
+    onChange: onInputChange,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 79,
+      columnNumber: 17
+    }
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Row"], {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 82,
+      columnNumber: 13
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Col"], {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 83,
+      columnNumber: 15
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Checkmark, {
+    valid: usernameValid,
+    firstRender: firstRender,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 84,
+      columnNumber: 17
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Input, {
+    type: "text",
+    name: "username",
+    placeholder: "Dit navn",
+    onChange: onInputChange,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 85,
+      columnNumber: 17
+    }
+  })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Col"], {
+    md: "8",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 89,
+      columnNumber: 11
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Checkmark, {
+    valid: messageValid,
+    firstRender: firstRender,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 90,
+      columnNumber: 13
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Input, {
+    type: "textarea",
+    name: "message",
+    placeholder: "Din besked",
+    onChange: onInputChange,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 91,
+      columnNumber: 13
+    }
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Row"], {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 94,
+      columnNumber: 9
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Col"], {
+    xs: "12",
+    className: "d-flex justify-content-end",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 95,
+      columnNumber: 11
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Button, {
+    role: "presentational",
+    type: "submit",
+    onClick: onInputSubmit,
+    disabled: !emailValid || !messageValid || !usernameValid,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 96,
+      columnNumber: 13
+    }
+  }, "Send Besked"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Row"], {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 101,
       columnNumber: 9
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Col"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 19,
+      lineNumber: 102,
       columnNumber: 11
     }
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Col"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledAlert, {
+    variant: response.status === "mail_sent" ? "success" : "danger",
+    show: response.message !== "",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 20,
-      columnNumber: 11
+      lineNumber: 103,
+      columnNumber: 13
     }
-  }))));
+  }, response.message)))));
 }; // ContactForm.defaultProps = {};
 
 
@@ -1013,6 +1229,73 @@ const StyledContainer = Object(styled_components__WEBPACK_IMPORTED_MODULE_1__["d
     colors
   }
 }) => colors.brand.lightGrey};
+`;
+const Input = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].input`
+  width: 100%;
+  border: none;
+  padding: 10px 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  &[type="textarea"] {
+    height: 110px;
+  }
+  &:focus {
+    border-color: ${({
+  theme: {
+    colors
+  }
+}) => colors.brand.primary};
+    outline-color: ${({
+  theme: {
+    colors
+  }
+}) => colors.brand.primary};
+    border-radius: 0;
+    outline-style: solid;
+    outline-width: 1px;
+  }
+`;
+const Checkmark = Object(styled_components__WEBPACK_IMPORTED_MODULE_1__["default"])(_styled_icons_evaicons_solid_CheckmarkCircle__WEBPACK_IMPORTED_MODULE_4__["CheckmarkCircle"])`
+  display: ${({
+  firstRender
+}) => firstRender.current ? "none" : "flex"};
+  height: 22px;
+  position: absolute;
+  bottom: 20px;
+  right: 30px;
+  color: ${({
+  theme: {
+    colors
+  },
+  valid
+}) => valid ? colors.brand.primary : colors.brand.red};
+`;
+const Button = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].button`
+  padding: 15px 40px;
+  border: 0;
+  color: white;
+  width: 300px;
+  background-color: ${({
+  theme: {
+    colors
+  }
+}) => colors.brand.primary};
+  &:hover {
+    cursor: ${({
+  disabled
+}) => disabled ? "not-allowed" : "pointer"};
+  }
+  border: none;
+  &:focus, &:active: {
+    outline: none;
+    border: none;
+  }
+`;
+const StyledAlert = Object(styled_components__WEBPACK_IMPORTED_MODULE_1__["default"])(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Alert"])`
+  margin-top: 12px;
+  border-radius: 0;
+  border: 0;
 `;
 /* harmony default export */ __webpack_exports__["default"] = (ContactForm);
 
@@ -1620,6 +1903,147 @@ CenteredText.propTypes = {};
 
 /***/ }),
 
+/***/ "./src/organisms/FocusBox/FocusBox.js":
+/*!********************************************!*\
+  !*** ./src/organisms/FocusBox/FocusBox.js ***!
+  \********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/index.js");
+/* harmony import */ var _molecules_UnderlinedHeader_UnderlinedHeader__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../molecules/UnderlinedHeader/UnderlinedHeader */ "./src/molecules/UnderlinedHeader/UnderlinedHeader.js");
+var _jsxFileName = "/Users/villadsvalur/Developer/ValurDigital/ellen-lolck-site/themes/ellen-lolck-theme/react-src/src/organisms/FocusBox/FocusBox.js";
+
+
+
+
+
+
+const FocusBox = ({
+  right,
+  left
+}) => {
+  if (right && left) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledContainer, {
+      fluid: true,
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 10,
+        columnNumber: 7
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["Container"], {
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 11,
+        columnNumber: 9
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["Row"], {
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 12,
+        columnNumber: 11
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["Col"], {
+      xs: {
+        span: 12,
+        offset: 0
+      },
+      md: {
+        span: 5
+      },
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 13,
+        columnNumber: 13
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_molecules_UnderlinedHeader_UnderlinedHeader__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      header: right.header,
+      text: right.text,
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 14,
+        columnNumber: 15
+      }
+    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["Col"], {
+      xs: {
+        span: 12,
+        offset: 0
+      },
+      md: {
+        span: 5,
+        offset: 1
+      },
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 17,
+        columnNumber: 13
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_molecules_UnderlinedHeader_UnderlinedHeader__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      header: right.header,
+      text: right.text,
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 18,
+        columnNumber: 15
+      }
+    })))));
+  }
+
+  return null;
+};
+
+const StyledContainer = Object(styled_components__WEBPACK_IMPORTED_MODULE_2__["default"])(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["Container"])`
+  padding-top: ${({
+  theme: {
+    padding
+  }
+}) => padding.sectionTop};
+  padding-bottom: ${({
+  theme: {
+    padding
+  }
+}) => padding.sectionBottom};
+  background-color: ${({
+  theme: {
+    colors
+  }
+}) => colors.brand.lightGrey};
+`; // FocusBox.defaultProps = {};
+
+FocusBox.propTypes = {};
+/* harmony default export */ __webpack_exports__["default"] = (FocusBox);
+
+/***/ }),
+
+/***/ "./src/organisms/FocusBox/index.js":
+/*!*****************************************!*\
+  !*** ./src/organisms/FocusBox/index.js ***!
+  \*****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _FocusBox__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FocusBox */ "./src/organisms/FocusBox/FocusBox.js");
+
+/* harmony default export */ __webpack_exports__["default"] = (_FocusBox__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+/***/ }),
+
 /***/ "./src/organisms/Footer/Footer.js":
 /*!****************************************!*\
   !*** ./src/organisms/Footer/Footer.js ***!
@@ -1745,6 +2169,135 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./src/organisms/MoreInfoBox/MoreInfoBox.js":
+/*!**************************************************!*\
+  !*** ./src/organisms/MoreInfoBox/MoreInfoBox.js ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/index.js");
+/* harmony import */ var _molecules_UnderlinedHeader_UnderlinedHeader__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../molecules/UnderlinedHeader/UnderlinedHeader */ "./src/molecules/UnderlinedHeader/UnderlinedHeader.js");
+var _jsxFileName = "/Users/villadsvalur/Developer/ValurDigital/ellen-lolck-site/themes/ellen-lolck-theme/react-src/src/organisms/MoreInfoBox/MoreInfoBox.js";
+
+
+
+
+
+
+const MoreInfoBox = ({
+  header,
+  info
+}) => {
+  if (header) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledContainer, {
+      fluid: true,
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 10,
+        columnNumber: 7
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["Container"], {
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 11,
+        columnNumber: 9
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["Row"], {
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 12,
+        columnNumber: 11
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["Col"], {
+      xs: "12",
+      md: "4",
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 13,
+        columnNumber: 13
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_molecules_UnderlinedHeader_UnderlinedHeader__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      header: header,
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 14,
+        columnNumber: 15
+      }
+    }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["Row"], {
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 17,
+        columnNumber: 11
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["Col"], {
+      xs: "12",
+      md: "8",
+      dangerouslySetInnerHTML: {
+        __html: info
+      },
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 18,
+        columnNumber: 13
+      }
+    }))));
+  }
+
+  return null;
+};
+
+const StyledContainer = Object(styled_components__WEBPACK_IMPORTED_MODULE_2__["default"])(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["Container"])`
+  padding-top: ${({
+  theme: {
+    padding
+  }
+}) => padding.sectionTop};
+  padding-bottom: ${({
+  theme: {
+    padding
+  }
+}) => padding.sectionBottom};
+  background-color: rgb(226 154 16 / 0.25);
+  color: rgba(0, 0, 0, 1);
+`;
+MoreInfoBox.propTypes = {
+  header: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string,
+  text: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string
+};
+/* harmony default export */ __webpack_exports__["default"] = (MoreInfoBox);
+
+/***/ }),
+
+/***/ "./src/organisms/MoreInfoBox/index.js":
+/*!********************************************!*\
+  !*** ./src/organisms/MoreInfoBox/index.js ***!
+  \********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _MoreInfoBox__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MoreInfoBox */ "./src/organisms/MoreInfoBox/MoreInfoBox.js");
+
+/* harmony default export */ __webpack_exports__["default"] = (_MoreInfoBox__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+/***/ }),
+
 /***/ "./src/organisms/ServiceBoxes/ServiceBoxes.js":
 /*!****************************************************!*\
   !*** ./src/organisms/ServiceBoxes/ServiceBoxes.js ***!
@@ -1796,6 +2349,14 @@ const ServiceBoxes = ({
       columnNumber: 9
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["Col"], {
+    xs: {
+      span: 8,
+      offset: 2
+    },
+    md: {
+      span: 4,
+      offset: 0
+    },
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -1811,6 +2372,14 @@ const ServiceBoxes = ({
       columnNumber: 13
     }
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["Col"], {
+    xs: {
+      span: 8,
+      offset: 2
+    },
+    md: {
+      span: 4,
+      offset: 0
+    },
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -1826,6 +2395,14 @@ const ServiceBoxes = ({
       columnNumber: 13
     }
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["Col"], {
+    xs: {
+      span: 8,
+      offset: 2
+    },
+    md: {
+      span: 4,
+      offset: 0
+    },
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -1977,10 +2554,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
 /* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/index.js");
-/* harmony import */ var _molecules_Banner_Banner__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../molecules/Banner/Banner */ "./src/molecules/Banner/Banner.js");
-/* harmony import */ var _atoms_SeoHelmet__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../atoms/SeoHelmet */ "./src/atoms/SeoHelmet.js");
-/* harmony import */ var _molecules_ContactForm_ContactForm__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../molecules/ContactForm/ContactForm */ "./src/molecules/ContactForm/ContactForm.js");
+/* harmony import */ var _atoms_SeoHelmet__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../atoms/SeoHelmet */ "./src/atoms/SeoHelmet.js");
+/* harmony import */ var _molecules_ContactForm_ContactForm__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../molecules/ContactForm/ContactForm */ "./src/molecules/ContactForm/ContactForm.js");
+/* harmony import */ var _molecules_Banner_Banner__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../molecules/Banner/Banner */ "./src/molecules/Banner/Banner.js");
+/* harmony import */ var _organisms_MoreInfoBox__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../organisms/MoreInfoBox */ "./src/organisms/MoreInfoBox/index.js");
+/* harmony import */ var _organisms_FocusBox__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../organisms/FocusBox */ "./src/organisms/FocusBox/index.js");
 var _jsxFileName = "/Users/villadsvalur/Developer/ValurDigital/ellen-lolck-site/themes/ellen-lolck-theme/react-src/src/templates/Page/Page.js";
+
+
 
 
 
@@ -1993,56 +2574,83 @@ const Page = ({
   title,
   acf,
   yoast
-}) => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_atoms_SeoHelmet__WEBPACK_IMPORTED_MODULE_4__["default"], {
+}) => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_atoms_SeoHelmet__WEBPACK_IMPORTED_MODULE_3__["default"], {
   seoData: yoast,
   pageTitle: title,
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 9,
+    lineNumber: 12,
     columnNumber: 5
   }
-}), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_molecules_Banner_Banner__WEBPACK_IMPORTED_MODULE_3__["default"], Object.assign({}, acf.banner, {
+}), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_molecules_Banner_Banner__WEBPACK_IMPORTED_MODULE_5__["default"], Object.assign({}, acf.banner, {
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 10,
+    lineNumber: 13,
+    columnNumber: 5
+  }
+})), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_organisms_FocusBox__WEBPACK_IMPORTED_MODULE_7__["default"], Object.assign({}, acf.focusBox, {
+  __self: undefined,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 14,
     columnNumber: 5
   }
 })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledContainer, {
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 11,
+    lineNumber: 15,
     columnNumber: 5
   }
 }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Row"], {
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 12,
+    lineNumber: 16,
     columnNumber: 7
   }
-}, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+}, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Content, {
   dangerouslySetInnerHTML: {
     __html: content
   },
+  xs: "12",
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 13,
+    lineNumber: 17,
     columnNumber: 9
   }
-}))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_molecules_ContactForm_ContactForm__WEBPACK_IMPORTED_MODULE_5__["default"], {
+}))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_organisms_MoreInfoBox__WEBPACK_IMPORTED_MODULE_6__["default"], Object.assign({}, acf.readMore, {
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 16,
+    lineNumber: 20,
+    columnNumber: 5
+  }
+})), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_molecules_ContactForm_ContactForm__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  __self: undefined,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 21,
     columnNumber: 5
   }
 }));
 
 const StyledContainer = Object(styled_components__WEBPACK_IMPORTED_MODULE_1__["default"])(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Container"])`
+  padding-top: ${({
+  theme: {
+    padding
+  }
+}) => padding.sectionTop};
+  padding-bottom: ${({
+  theme: {
+    padding
+  }
+}) => padding.sectionBottom};
+`;
+const Content = Object(styled_components__WEBPACK_IMPORTED_MODULE_1__["default"])(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Col"])`
   padding-top: ${({
   theme: {
     padding
@@ -2337,6 +2945,39 @@ const GlobalStyle = styled_components__WEBPACK_IMPORTED_MODULE_0__["createGlobal
     font-family: ${_fonts__WEBPACK_IMPORTED_MODULE_2__["fontFamily"].name}, ${_fonts__WEBPACK_IMPORTED_MODULE_2__["fontFamily"].type};
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;  
+
+    .wp-block-group__inner-container{
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      counter-reset: number;
+      flex-wrap: wrap;
+    }
+
+    .wp-block-quote{
+      width:50%; 
+      counter-increment: number;
+      width: 50%;
+      counter-increment: number;
+      display: flex;
+      padding: 20px;
+      flex-direction: column;
+       &::before{
+         content: counter(number)".";
+         font-weight: bold;
+         font-size: ${({
+  theme: {
+    fontSizes
+  }
+}) => fontSizes.large};
+         line-height: 1;
+         margin-right: 10px;
+       }
+       p{
+        display: flex;
+        flex-direction:column;
+       }
+     }
   }
 `;
 const theme = {
